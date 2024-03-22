@@ -7,10 +7,19 @@
     <link rel="stylesheet" href="assets/style/style.css">
 </head>
 <body>
+    <input id="close-menu" type="checkbox">
+    <label for="close-menu" id="menu"></label>
+    <header>
+        <nav id="header-nav-links" class="container-section">
+            <ul onclick="document.getElementById('close-menu').checked = false;">
+                <li><a href="#home">Home</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <section id="home" class="container-section background-black">
             <article class="home-content container-content">
-                <h1>- - Mercado Livre Para Homens Livres - -</h1>
+                <h1>Mercado Livre Para Homens Livres</h1>
             </article>
         </section>
     </main>
