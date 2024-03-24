@@ -125,7 +125,6 @@ header{
     font-size: 4rem;
     color: var(--color-black);
     position: relative;
-    opacity: 1;
 }
 
 #header-nav-links a::after{
@@ -142,6 +141,7 @@ header{
 #header-nav-links a:hover::after{
     width: 100%;
     left: 0%;
+    opacity: 1;
 }
 
 #close-menu:checked~#menu::after{
