@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGP</title>
+    <link rel="stylesheet" href="../assets/style/style.css">
+</head>
+
+<body>
+    <input id="close-menu" type="checkbox">
+    <label for="close-menu" id="menu"></label>
+    <header>
+        <nav id="header-nav-links" class="container-section">
+            <ul onclick="document.getElementById('close-menu').checked = false;">
+                <li><a href="https://guerreir0.github.io/">Home</a></li>
+                <li><a href="https://guerreir0.github.io/#product-services">Produtos / Serviços</a></li>
+                <li><a href="https://guerreir0.github.io/#payment">Pagamento</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="container-section background-black">
+            <section class="post-content container-content">
+                <h1 id="title">PGP & GPG</h1>
+                <span>Pretty Good Privacy & GNU Privacy Guard</span>
+                <nav class="post-section">
+                    <ul id="summary">
+                        <li><a href="#history">História</a></li>
+                        <li><a href="#gnu-privacy-guard">GNU Privacy Guard</a></li>
+                        <li><a href="#why-use-gpg">Porque Usar GPG</a></li>
+                        <li><a href="#install">Instalação</a></li>
+                        <li><a href="#create-key">Criando sua Chave</a></li>
+                        <li><a href="#fonts">Fontes</a></li>
+                        <li><a href="#payment">Pagamento</a></li>
+                    </ul>
+                </nav>
+                <section id="history" class="post-section">
+                    <h2>História</h2>
+                    <p>O OpenPGP é um protocolo não proprietário para criptografar e-mails usando criptografia de chave
+                        pública. O protocolo OpenPGP define formatos padrão para mensagens criptografadas, assinaturas,
+                        chaves privadas e certificados para trocar chaves públicas.</p>
+                    <p>É baseado no software de freeware Pretty Good Privacy (PGP) como originalmente desenvolvido em
+                        1991 por Phil Zimmermann. Para isso, ele foi alvo de uma investigação criminal de três anos,
+                        porque o governo dos EUA considerou que as restrições de exportação dos EUA para software
+                        criptográfico foram violadas quando o PGP se espalhou por todo o mundo após sua publicação como
+                        freeware.</p>
+                    <p>Apesar da falta de financiamento, da falta de pessoal remunerado, da falta de uma empresa para
+                        apoiá-la e, apesar da perseguição do governo, o PGP tornou-se o software de criptografia de
+                        e-mail mais usado no mundo. Depois que o governo abandonou seu caso no início de 1996, a
+                        Zimmermann fundou a PGP Inc. Essa empresa e sua propriedade intelectual foram adquiridas pela
+                        Network Associates Inc (NAI) em dezembro de 1997. A NAI continuou a possuir e desenvolver
+                        produtos PGP para fins comerciais e de serviços de livre armazenamento. Em 2002, a NAI
+                        interrompeu o desenvolvimento e as vendas do PGP e vendeu os direitos a uma nova empresa, a PGP
+                        Corporation.</p>
+                </section>
+                <section id="gnu-privacy-guard" class="post-section">
+                    <h2>GNU Privacy Guard</h2>
+                    <p>
+                        O GnuPG é uma implementação completa e livre do padrão OpenPGP, conforme definido por RFC4880
+                        (também conhecido como PGP). O GnuPG permite criptografar e Assine seus dados e comunicações;
+                        ele possui um gerenciamento de chaves versátil sistema, juntamente com módulos de acesso para
+                        todos os tipos de chave pública - Os diretórios. GnuPG, também conhecido como GPG, é uma
+                        ferramenta de linha de comando com recursos para facilitar a integração com outras aplicações.
+                        Uma riqueza de Aplicativos frontend e bibliotecas estão disponíveis. GnuPG também fornece
+                        suporte para S / MIME e Secure Shell (ssh).
+                    </p>
+                    <p>
+                        Desde a sua introdução em 1997, o GnuPG é Software Livre (o que significa que respeita a sua
+                        liberdade). Pode ser usado livremente, modificado e distribuído sob os termos da Licença Pública
+                        Geral GNU.
+                    </p>
+                </section>
+                <section id="why-use-gpg" class="post-section">
+                    <h2>Porque Usar GPG</h2>
+                    <p>O GPG utiliza algoritmos de criptografia robustos e comprovados, garantindo a segurança dos dados
+                        e comunicações protegidas.</p>
+                    <p>A criptografia de chave pública do GPG permite que os usuários protejam suas informações pessoais
+                        e comunicações contra acesso não autorizado.</p>
+                    <p>O GPG pode ser utilizado para proteger e-mails, mensagens instantâneas e outros tipos de
+                        comunicação online, garantindo que apenas o destinatário pretendido possa acessar o conteúdo.
+                    </p>
+                    <p>O GPG permite que os usuários assinem digitalmente documentos e arquivos, garantindo sua
+                        autenticidade e integridade.</p>
+                    <p>Em resumo, hoje em dia com a constante, vigilância/espionagem praticadas por governos e empresas,
+                        suas informações pessoais estão a mercê de terceiros malignos que buscam o controle total a sua
+                        comunicação na internet. Se você se importa com a sua privacidade siga o tutorial abaixo.</p>
+                </section>
+                <section id="install" class="post-section">
+                    <h2>Instalação</h2>
+                    <strong>Linux:</strong>
+                    <p>A maioria dos sistemas operacionais GNU/Linux vem com GnuPG instalado, porém caso o seu sistema
+                        seja um exceção, digite o seguinte comando em seu terminal:</p>
+                    <kbd>sudo apt-get install gpg</kbd>
+                    <strong>Windows:</strong>
+
+                    <p><a href="https://www.gpg4win.org/">GPG4Win</a> é um pacote de software de criptografia de e-mail
+                        e arquivos que inclui GnuPG. Faça o download e instale a versão mais recente, escolhendo as
+                        opções padrão sempre que solicitado. Depois de instalado, você pode fechar as janelas que ele
+                        cria.</p>
+                    <strong>MAC:</strong>
+                    <p>Usar um gerenciador de pacotes de terceiros para instalar o GnuPG</p>
+                    <p>O gerenciador de pacotes padrão do macOS dificulta a instalação do GnuPG e de outros softwares
+                        gratuitos (como Emacs, GIMP ou Inkscape). Para facilitar as coisas, recomendamos configurar o
+                        gerenciador de pacotes de terceiros "Homebrew" para instalar o GnuPG. Para isso, usaremos um
+                        programa chamado "Terminal", que é pré-instalado no macOS.</p>
+                    <p>Copie o primeiro comando na página inicial do <a href="https://brew.sh/">Homebrew</a> clicando no
+                        ícone da área de transferência e cole-o no Terminal. Clique em "Enter" e aguarde a conclusão da
+                        instalação.</p>
+                    <p>Em seguida, instale o GnuPG digitando o seguinte código no Terminal: </p>
+                    <kbd>brew install gnupg gnupg2</kbd>
+                </section>
+                <section id="create-key" class="post-section container-content">
+                    <h2>Criando sua Chave</h2>
+                    <p>Para usar o sistema GnuPG, você precisará de uma chave pública e uma chave privada (conhecida
+                        juntos como um papel de chave). Cada um é uma longa sequência de números gerados aleatoriamente
+                        e cartas que são exclusivas para você. Suas chaves públicas e privadas estão ligadas juntos por
+                        uma função matemática especial.</p>
+                    <p>Sua chave pública não é como uma chave física, porque está armazenada no aberto em um diretório
+                        on-line chamado keyserver. As pessoas fazem o download e usam, juntamente com GnuPG, para
+                        criptografar e-mails que eles enviam para você. Você pode pensar no servidor de chaves como uma
+                        lista telefônica; as pessoas que querem enviar e-mails criptografados podem Olhe para a sua
+                        chave pública.</p>
+                    <p>Sua chave privada é mais como uma chave física, porque você a mantém para você mesmo (no seu
+                        computador). Você usa o GnuPG e sua chave privada juntos para descramble e-mails criptografados
+                        que outras pessoas enviam para você. <strong>Você nunca deve compartilhar sua chave privada com
+                            ninguém, sob qualquer circunstâncias.</strong></p>
+                    <strong>Terminal:</strong>
+                    <p>Vamos usar a linha de comando em um terminal para criar um chaveiro usando o O programa GnuPG.
+                    </p>
+                    <span>Seja no GNU/Linux, macOS ou Windows, você pode iniciar o seu Terminal ("Terminal" no macOS,
+                        "PowerShell" no Windows).</span>
+                    <ol>
+                        <li>
+                            <p>Cole o comando abaixo em seu terminal para iniciar o processo e gerar a sua chave.</p>
+                            <kbd>gpg --full-generate-key</kbd>
+                            <p>Será solicitado que você responda algumas perguntas técnicas e outras pessoais básicas para associar você a chave que está gerando.</p>
+                            <img src="../assets/img/step2a-02-make-keypair.png" alt="step2a-02-make-keypair">
+                        </li>
+                        <li>
+                            <p><strong>Tipo de chave:</strong> Você pode escolher o tipo de chave desejado. Pressione Enter para aceitar o padrão (geralmente RSA).</p>
+                            <kbd>1</kbd>
+                        </li>
+                        <li>
+                            <p><strong>Tamanho da chave:</strong> Escolha o tamanho da chave. Pressione Enter para aceitar o padrão (geralmente 4096 bits).</p>
+                            <kbd>4096</kbd>
+                        </li>
+                        <li>
+                            <p><strong>Prazo de validade da chave:</strong> Digite o prazo de validade da chave. Pressione Enter para especificar que a chave não vence (a menos que você precise de uma data de validade específica).</p>
+                            <kbd>0</kbd>
+                        </li>
+                        <li>
+                            <p><strong>Verifique suas seleções:</strong> Verifique se as seleções estão corretas.</p>
+                            <kbd>y</kbd>
+                        </li>
+                        <li>
+                            <p><strong>ID de usuário:</strong> Insira seu ID de usuário (geralmente seu endereço de e-mail verificado para sua conta do GitHub).</p>
+                            <p>Real name:</p>
+                            <kbd>meu nome</kbd>
+                            <p>Email address:</p>
+                            <kbd>meuemail@proton.me</kbd>
+                            <p>comment:</p>
+                            <kbd>Jesus tornou a lei ainda mais perfeita, da mesma forma o Bitcoin veio para aprimorar a propriedade privada.</kbd>
+                            <p>Change (N)ame, (C)omment, (E)mail or (O)Kay/(Q)uit?</p>
+                            <kbd>o</kbd>
+                        </li>
+                        <li>
+                            <p><strong>Frase secreta:</strong> Digite uma frase secreta segura.</p>
+                            <img src="../assets/img/step2a-03-make-keypair.png" alt="step2a-03-make-keypair">
+                        </li>
+                    </ol>
+                </section>
+                <section id="fonts" class="post-section">
+                    <h2>Fontes</h2>
+                    <ul style="text-align: center;">
+                        <li><a href="https://www.openpgp.org/about/history/">OpenPGP</a></li>
+                        <li><a href="https://gnupg.org/">GnuPG</a></li>
+                        <li><a href="https://emailselfdefense.fsf.org/en/">E-mail Self Defense</a></li>
+                        <li><a href="https://www.gpg4win.org/">GPG4win</a></li>
+                        <li><a href="https://www.limontec.com/2022/11/como-criar-e-usar-chave-pgp-gpg.html">limontec</a></li>
+                        <li><a href="https://www.varonis.com/pt-br/blog/pgp-encryption">varonis</a></li>
+                    </ul>
+                </section>
+                <section id="payment" class="post-section container-content">
+                    <h2>Pagamento</h2>
+                    <span>⚡ Lightning Network</span>
+                    <kbd>guerrelr0@getalby.com</kbd>
+                    <img src="/assets/img/qrcode.png" alt="">
+                </section>
+            </section>
+        </section>
+    </main>
+    <a href="#title" id="button-to-home">👆</a>
+</body>
+
+</html>
