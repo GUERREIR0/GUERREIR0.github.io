@@ -30,8 +30,11 @@
                         <li><a href="#history">História</a></li>
                         <li><a href="#gnu-privacy-guard">GNU Privacy Guard</a></li>
                         <li><a href="#why-use-gpg">Porque Usar GPG</a></li>
+                        <li><a href="#encryption-decryption">Criptografando / Descriptografando</a></li>
+                        <li><a href="#fingerprint">Fingerprint</a></li>
                         <li><a href="#install">Instalação</a></li>
                         <li><a href="#create-key">Criando sua Chave</a></li>
+                        <li><a href="#commands">Comandos GPG</a></li>
                         <li><a href="#fonts">Fontes</a></li>
                         <li><a href="#payment">Pagamento</a></li>
                     </ul>
@@ -87,6 +90,57 @@
                         suas informações pessoais estão a mercê de terceiros malignos que buscam o controle total a sua
                         comunicação na internet. Se você se importa com a sua privacidade siga o tutorial abaixo.</p>
                 </section>
+                <section id="encryption-decryption" class="post-section">
+                    <h2>Criptografando / Descriptografando</h2>
+                    <p>Na criptografia de chave pública, os processos de criptografia e descriptografia dependem de
+                        pares de chaves matematicamente únicos. Consiste em duas chaves, uma chamada chave pública e
+                        outra chamada chave privada, ambas capazes de criptografar e descriptografar uma à outra. Uma
+                        chave pública representa uma função unidirecional semelhante a um cadeado aberto – uma
+                        propriedade de segurança que qualquer pessoa pode bloquear facilmente, mas apenas o detentor da
+                        chave privada pode abrir. A essência desta operação é que a chave privada usada para
+                        descriptografar uma mensagem criptografada de chave pública deve sempre permanecer secreta,
+                        conhecida apenas pelo proprietário do par de chaves.</p>
+                    <img src="../assets/img/pgp-encryption-diagram.png" alt="pgp-encryption-diagram"
+                        class="img-generic">
+                    <p>Se Jacob quiser enviar uma mensagem criptografada para Julian, ele precisará da chave pública de
+                        Julian. Isso significa que Julian deve compartilhar sua chave pública com Jacob. Jacob pode
+                        então obter a chave pública de Julian, usá-la para criptografar a mensagem e enviar o texto
+                        cifrado criptografado para Julian. Depois de receber a mensagem, Julian pode usar sua chave
+                        privada para descriptografar a mensagem.</p>
+                </section>
+                <section id="fingerprint" class="post-section">
+                    <h2>Fingerprint</h2>
+                    <img class="img-generic" src="../assets/img/fingerprint.png" alt="fingerprint">
+                    <p>Fingerprint (ou impressão digital) da chave PGP. Ela é uma representação compacta e única da
+                        chave pública, geralmente composta por 40 caracteres hexadecimais. Essa impressão digital é
+                        gerada a partir da chave pública completa e serve como uma forma rápida de verificar a
+                        autenticidade da chave.</p>
+                    <p>Algumas informações importantes sobre a impressão digital da chave pública:</p>
+                    <ol>
+                        <li>
+                            <p><strong>Identificação Rápida:</strong> A impressão digital é usada para verificar se a
+                                chave pública que você possui corresponde à chave pública de outra pessoa. Em vez de
+                                comparar as chaves completas, você pode comparar as impressões digitais para garantir
+                                que sejam idênticas.</p>
+                        </li>
+                        <li>
+                            <p><strong>Verificação de Chaves:</strong> Quando você troca chaves PGP com alguém,
+                                compartilhar a impressão digital é uma maneira eficaz de garantir que você está usando a
+                                chave correta. Você pode comparar as impressões digitais pessoalmente ou por meio de
+                                canais seguros.</p>
+                        </li>
+                        <li>
+                            <p><strong>Assinaturas Digitais:</strong> A impressão digital também é usada em assinaturas
+                                digitais. Quando alguém assina uma mensagem ou arquivo com sua chave privada, a
+                                impressão digital é incluída na assinatura. Isso permite que outros verifiquem a
+                                autenticidade da assinatura usando sua chave pública e a correspondente impressão
+                                digital.</p>
+                        </li>
+                    </ol>
+                    <p>A impressão digital é uma representação resumida da chave pública e não deve ser usada para
+                        criptografar ou descriptografar mensagens. Ela é apenas uma ferramenta para verificar a
+                        autenticidade das chaves PGP.</p>
+                </section>
                 <section id="install" class="post-section">
                     <h2>Instalação</h2>
                     <strong>Linux:</strong>
@@ -135,19 +189,25 @@
                         <li>
                             <p>Cole o comando abaixo em seu terminal para iniciar o processo e gerar a sua chave.</p>
                             <kbd>gpg --full-generate-key</kbd>
-                            <p>Será solicitado que você responda algumas perguntas técnicas e outras pessoais básicas para associar você a chave que está gerando.</p>
-                            <img class="img-generic" src="../assets/img/step2a-02-make-keypair.png" alt="step2a-02-make-keypair">
+                            <p>Será solicitado que você responda algumas perguntas técnicas e outras pessoais básicas
+                                para associar você a chave que está gerando.</p>
+                            <img class="img-generic" src="../assets/img/step2a-02-make-keypair.png"
+                                alt="step2a-02-make-keypair">
                         </li>
                         <li>
-                            <p><strong>Tipo de chave:</strong> Você pode escolher o tipo de chave desejado. Pressione Enter para aceitar o padrão (geralmente RSA).</p>
+                            <p><strong>Tipo de chave:</strong> Você pode escolher o tipo de chave desejado. Pressione
+                                Enter para aceitar o padrão (geralmente RSA).</p>
                             <kbd>1</kbd>
                         </li>
                         <li>
-                            <p><strong>Tamanho da chave:</strong> Escolha o tamanho da chave. Pressione Enter para aceitar o padrão (geralmente 4096 bits).</p>
+                            <p><strong>Tamanho da chave:</strong> Escolha o tamanho da chave. Pressione Enter para
+                                aceitar o padrão (geralmente 4096 bits).</p>
                             <kbd>4096</kbd>
                         </li>
                         <li>
-                            <p><strong>Prazo de validade da chave:</strong> Digite o prazo de validade da chave. Pressione Enter para especificar que a chave não vence (a menos que você precise de uma data de validade específica).</p>
+                            <p><strong>Prazo de validade da chave:</strong> Digite o prazo de validade da chave.
+                                Pressione Enter para especificar que a chave não vence (a menos que você precise de uma
+                                data de validade específica).</p>
                             <kbd>0</kbd>
                         </li>
                         <li>
@@ -155,19 +215,84 @@
                             <kbd>y</kbd>
                         </li>
                         <li>
-                            <p><strong>ID de usuário:</strong> Insira seu ID de usuário (geralmente seu endereço de e-mail verificado para sua conta do GitHub).</p>
+                            <p><strong>ID de usuário:</strong> Insira seu ID de usuário (geralmente seu endereço de
+                                e-mail verificado para sua conta do GitHub).</p>
                             <p>Real name:</p>
                             <kbd>meu nome</kbd>
                             <p>Email address:</p>
                             <kbd>meuemail@proton.me</kbd>
                             <p>comment:</p>
-                            <kbd>Jesus tornou a lei ainda mais perfeita, da mesma forma o Bitcoin veio para aprimorar a propriedade privada.</kbd>
+                            <kbd>Jesus tornou a lei ainda mais perfeita, da mesma forma o Bitcoin veio para aprimorar a
+                                propriedade privada.</kbd>
                             <p>Change (N)ame, (C)omment, (E)mail or (O)Kay/(Q)uit?</p>
                             <kbd>o</kbd>
                         </li>
                         <li>
                             <p><strong>Frase secreta:</strong> Digite uma frase secreta segura.</p>
-                            <img class="img-generic" src="../assets/img/step2a-03-make-keypair.png" alt="step2a-03-make-keypair">
+                            <img class="img-generic" src="../assets/img/step2a-03-make-keypair.png"
+                                alt="step2a-03-make-keypair">
+                        </li>
+                    </ol>
+                </section>
+                <section id="commands" class="post-section">
+                    <h2>Comandos GPG</h2>
+                    <ol>
+                        <li>Listar Chaves Disponíveis:
+                            <p>Para listar todas as chaves disponíveis em seu sistema, use o comando:</p>
+                            <kbd>gpg --list-keys</kbd>
+                        </li>
+                        <li>Listar Chaves por Padrão:
+                            <p>Se você deseja listar chaves com base em um padrão específico (por exemplo, filtrar por
+                                nome ou e-mail), use:</p>
+                            <kbd>gpg --list-keys (padrão)</kbd>
+                        </li>
+                        <li>Exportar Chave Pública:
+                            <p>Para exportar sua chave pública para um arquivo (por exemplo, “chavepub.txt”), use:</p>
+                            <kbd>gpg --armor --output chavepub.txt --export (chavepub)</kbd>
+                            <p>Substitua (chavepub) pelo e-mail ou nome da chave pública que você deseja exportar.</p>
+                        </li>
+                        <li>Importar Chave Pública:
+                            <p>Se você tiver uma chave pública em um arquivo (por exemplo, “chavepub.txt”), importe-a
+                                usando:</p>
+                            <kbd>gpg --import chavepub.txt</kbd>
+                        </li>
+                        <li>Encriptografar Arquivos com Chave Pública:
+                            <p>Para encriptografar um arquivo usando uma chave pública, execute:</p>
+                            <kbd>gpg --encrypt --recipient (chavepub) arquivo.txt</kbd>
+                            <p>Substitua (chavepub) pela chave pública relevante e “arquivo.txt” pelo nome do arquivo
+                                que você deseja criptografar.</p>
+                        </li>
+                        <li>Assinar Arquivos Digitalmente:
+                            <p>Para assinar um arquivo digitalmente, use:</p>
+                            <kbd>gpg --sign arquivo.txt</kbd>
+                            <p>Isso criará uma assinatura digital para o arquivo.</p>
+                        </li>
+                        <li>Assinar Arquivos Digitalmente (Com uma chave especifica):
+                            <p>Quando você assina digitalmente um arquivo usando o GNU Privacy Guard (GPG), a chave
+                                usada para assinar é automaticamente determinada com base na sua configuração. O GPG
+                                seleciona sua chave privada padrão para realizar a assinatura.</p>
+                            <p>Se você possui várias chaves privadas, o GPG escolherá aquela associada ao seu
+                                identificador (normalmente seu endereço de e-mail) ou à chave que você especificou
+                                anteriormente em suas configurações.</p>
+                            <p>No entanto, se você deseja assinar com uma chave específica, pode usar a opção
+                                --local-user seguida do ID da chave (geralmente o endereço de e-mail associado a ela).
+                                Por exemplo:</p>
+                            <kbd>gpg --local-user meuemail@exemplo.com --sign arquivo.txt</kbd>
+                            <p>Substitua meuemail@exemplo.com pelo seu endereço de e-mail ou pelo ID da chave que você
+                                deseja usar para a assinatura.</p>
+                            <p>Na maioria dos casos, o GPG escolherá automaticamente a chave correta com base nas
+                                configurações padrão, mas você pode especificar manualmente se necessário. 🗝️🔏</p>
+                        </li>
+                        <li>Verificar Assinaturas Digitais:
+                            <p>Para verificar a assinatura digital de um arquivo, execute:</p>
+                            <kbd>gpg --verify arquivo.txt</kbd>
+                            <p>Isso verificará se a assinatura é válida.</p>
+                        </li>
+                        <li>Decriptografar Arquivos com Chave Privada:
+                            <p>Para decriptografar um arquivo usando sua chave privada, use:</p>
+                            <kbd>gpg --decrypt arquivo.gpg</kbd>
+                            <p>Isso descriptografará o arquivo e, se ele estiver assinado, também verificará a
+                                assinatura.</p>
                         </li>
                     </ol>
                 </section>
@@ -178,8 +303,10 @@
                         <li><a href="https://gnupg.org/">GnuPG</a></li>
                         <li><a href="https://emailselfdefense.fsf.org/en/">E-mail Self Defense</a></li>
                         <li><a href="https://www.gpg4win.org/">GPG4win</a></li>
-                        <li><a href="https://www.limontec.com/2022/11/como-criar-e-usar-chave-pgp-gpg.html">limontec</a></li>
+                        <li><a href="https://www.limontec.com/2022/11/como-criar-e-usar-chave-pgp-gpg.html">limontec</a>
+                        </li>
                         <li><a href="https://www.varonis.com/pt-br/blog/pgp-encryption">varonis</a></li>
+                        <li><a href="https://jacobriggs.io/blog/posts/how-do-pgp-keys-work-6">jacobriggs</a></li>
                     </ul>
                 </section>
                 <section id="payment" class="post-section container-content">
