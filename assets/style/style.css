@@ -36,6 +36,7 @@ html{
 body{
     font-family: sans-serif;
     font-size: 1.6rem;
+    background-color: var(--color-black);
 }
 
 h1{
@@ -252,7 +253,6 @@ ol > li strong{
     position: fixed;
     bottom: 3rem;
     right: 3rem;
-    background-color: var(--color-black);
     opacity: .5;
     width: 4.5rem;
     height: 4.5rem;
