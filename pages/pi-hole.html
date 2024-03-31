@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi-hole</title>
+    <link rel="stylesheet" href="../assets/style/style.css">
+    <link rel="icon" href="../assets/img/lightning.png" type="image/png">
+</head>
+
+<body>
+    <input id="close-menu" type="checkbox">
+    <label for="close-menu" id="menu"></label>
+    <header>
+        <nav id="header-nav-links" class="container-section">
+            <ul onclick="document.getElementById('close-menu').checked = false;">
+                <li><a href="https://guerreir0.github.io/">Home</a></li>
+                <li><a href="https://guerreir0.github.io/#product-services">Produtos / Serviços</a></li>
+                <li><a href="https://guerreir0.github.io/#payment">Pagamento</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="container-section background-black">
+            <section class="post-content container-content">
+                <h1 id="title">Pi-hole</h1>
+                <span>Network-wide Ad Blocking</span>
+                <nav class="post-section">
+                    <ul id="summary">
+                        <li><a href="#what-is-pi-hole">O que é o Pi-hole?</a></li>
+                        <li><a href="#how-work-pi-hole">Como funciona?</a></li>
+                        <li><a href="#install">Instalação</a></li>
+                        <li><a href="#docker-pi-hole">Docker Pi-hole</a></li>
+                        <li><a href="#fonts">Fontes</a></li>
+                        <li><a href="#payment">Pagamento</a></li>
+                    </ul>
+                </nav>
+                <section id="what-is-pi-hole" class="post-section">
+                    <h2>O que é o Pi-hole?</h2>
+                    <p>Pi-hole é um bloqueador de anúncios em toda a rede. Em vez de instalar bloqueadores de anúncios
+                        em todos os dispositivos e em todos os navegadores, você pode instalar o Pi-hole uma vez na sua
+                        rede e ele protegerá todos os seus dispositivos. Como funciona de forma diferente de um
+                        bloqueador de anúncios baseado em navegador, o Pi-hole também bloqueia anúncios em locais não
+                        tradicionais, como em jogos e em TVs inteligentes.</p>
+                </section>
+                <section id="how-work-pi-hole" class="post-section">
+                    <h2>Como funciona?</h2>
+                    <p>O Pi-hole funciona como um servidor DNS interno e privado para sua rede. Para muitos usuários
+                        domésticos, esse serviço já está sendo executado no seu roteador, mas seu roteador não sabe onde
+                        os anúncios estão – mas o Pi-hole o faz. O Pi-hole interceptará quaisquer consultas para
+                        domínios conhecidos que veiculação de anúncios e os negarão acesso, para que os anúncios não
+                        sejam baixados.</p>
+                    <div>
+                        <img src="../assets/img/pihole-dhcp.png" alt="pi-hole-dhcp" class="img-generic">
+                        <span>Os usuários configuram as opções DHCP do roteador para forçar os clientes a usar o Pi-hole
+                            como servidor DNS.</span>
+                    </div>
+                    <p>Isso significa que os sites serão carregados normalmente, mas sem anúncios; como os anúncios
+                        nunca são baixados, os sites serão carregados mais rapidamente. O Pi-hole também armazena essas
+                        consultas, portanto, a capacidade de resposta a sites comumente visitados também pode ser
+                        notada.</p>
+                </section>
+                <section id="install" class="post-section">
+                    <h2>Instalação</h2>
+                    <strong>Modo Fácil</strong>
+                    <ol>
+                        <li>Instale o curl:
+                            <p>Primeiro, use as ferramentas de gerenciamento de pacotes APT para atualizar o índice de
+                                pacotes local:</p>
+                            <kbd>sudo apt update</kbd>
+                            <p>Verifique se o curl está instalado, se não estiver use o comando abaixo:</p>
+                            <kbd>sudo apt install curl</kbd>
+                        </li>
+                        <li>Instalar o Pi-hole usando o seguinte comando:
+                            <kbd>curl -sSL https://install.pi-hole.net | bash</kbd>
+                        </li>
+                    </ol>
+
+                    <strong>Modo mais seguro</strong>
+                    <ol>
+                        <li>Instale o git:
+                            <p>Atualize os pacotes:</p>
+                            <kbd>sudo apt update</kbd>
+                            <p>Caso o git não esteja instalado use o comando abaixo:</p>
+                            <kbd>sudo apt install git</kbd>
+                        </li>
+                        <li>Instalar o Pi-hole usando os seguintes comandos:
+                            <p>Clone o repositório</p>
+                            <kbd>git clone --depth 1 https://github.com/pi-hole/pi-hole.git Pi-hole</kbd>
+                            <p>Entre no diretório "Pi-hole/automated install/"</p>
+                            <kbd>cd "Pi-hole/automated install/"</kbd>
+                            <p>Execute o script em shell para iniciar a instalação</p>
+                            <kbd>sudo bash basic-install.sh</kbd>
+                        </li>
+                    </ol>
+                    <p>Independentemente do que escolheu iremos prosseguir com a instalação:</p>
+                    <ol>
+                        <li>
+                            <p>Ao iniciar a instalação você verá a seguinte tela:</p>
+                            <img src="../assets/img/pihole-install-1.webp" alt="pihole-install" class="img-generic">
+                        </li>
+                        <li>
+                            <p>Aqui está a tela de boas-vindas no teclado, pressione Enter para continuar.</p>
+                            <img src="../assets/img/pihole-install-2.webp" alt="pihole-install" class="img-generic">
+                        </li>
+                        <li>
+                            <p>O Pi-hole é um software de código aberto e fornece uma URL onde você pode fazer <a
+                                    href="https://pi-hole.net/donate/">doações para ajudar a financiar seu
+                                    desenvolvimento</a>. Pressione Enter para continuar.</p>
+                            <img src="../assets/img/pihole-install-3.webp" alt="pihole-install" class="img-generic">
+                        </li>
+                        <li>
+                            <p>Em seguida, o instalador explica que um endereço IP estático é necessário para que o
+                                Pi-hole funcione corretamente. Selecione SIM e pressione ENTER. Se você precisar voltar
+                                e reconfigurar sua rede, você pode escolher NÃO aqui para fazê-lo.</p>
+                            <img src="../assets/img/pihole-install-4.webp" alt="pihole-install" class="img-generic">
+                        </li>
+                        <li>
+                            <p>Esta é a nossa primeira decisão real a tomar como parte da instalação do software –
+                                escolhendo o seu provedor de DNS upstream. Você pode escolher qual provedor você
+                                prefere. Depois de selecionar, pressione a guia no teclado para mover o cursor e, em
+                                seguida, com o mouse selecione ok e pressione enter.</p>
+                            <img src="../assets/img/pihole-install-5.webp" alt="pihole-install" class="img-generic">
+                        </li>
+                        <li>
+                            <p>Em seguida, você é notificado de que o Pi-hole depende de uma lista de terceiros de
+                                anunciantes para uso ao bloquear anúncios. Se você não deseja usar esta lista, pressione
+                                espaço. Se você está bem com isso, deixe-o em paz. Em seguida, pressione a guia para
+                                mover o cursor e, em seguida, secar para OK e pressione enter.</p>
+                            <img src="../assets/img/pihole-install-6.webp" alt="pihole-install" class="img-generic">
+                        </li>
+                        <li>
+                            <p>Agora, o instalador precisa saber se você deseja usar a interface de administração da Web
+                                Pi-holes. Pi-hole pode ser controlado a partir de uma linha de comando, no entanto, é
+                                muito mais simples de gerenciar a partir da interface web. É minha forte recomendação
+                                deixar essa opção definida como ON. Pressione a guia no teclado e, em seguida, seleta
+                                para ok e pressione enter.</p>
+                            <img src="../assets/img/pihole-install-7.webp" alt="pihole-install" class="img-generic">
+                        </li>
+                        <li>
+                            <p>Para a interface de administração web para funcionar, você vai precisar de software de
+                                servidor web instalado. Instalar o Pi-hole para usar um servidor web que já está
+                                instalado está além do escopo deste tutorial. Deixe a opção definida paraon, em seguida,
+                                pressione a guia para mover o cursor e a seta para ok e pressione enter.</p>
+                            <img src="../assets/img/pihole-install-8.webp" alt="pihole-install" class="img-generic">
+                        </li>
+                        <li>
+                            <p>Dependendo de quão consciente de privacidade você é, você pode não querer que seu Pi-hole
+                                mantenha registros das consultas DNS que ele faz – essencialmente um registro de todos
+                                os servidores que os dispositivos que você configura para usar seu acesso ao Pi-hole. Se
+                                você estiver bem com Pi-hole criando logs, deixe a opção definida para a seta de outra
+                                forma para fora. Pressione a guia, em seguida, selegue para ok e pressione enter. Você
+                                pode alterar essa configuração após a instalação dentro do painel de administração, caso
+                                escolha.</p>
+                            <img src="../assets/img/pihole-install-9.webp" alt="pihole-install" class="img-generic">
+                        </li>
+                        <li>
+                            <p>Se você optou por ativar o login na tela anterior, agora pode decidir quanta informação é
+                                registrada. Suas opções são:</p>
+                            <ul style="list-style: circle; padding: 4rem; opacity: .5; font-style: italic;">
+                                <li>0 Show everything – isso é bastante auto-explicativo. Todas as informações possíveis
+                                    são
+                                    registradas nos logs.</li>
+                                <li>1 hide domains – esta opção registra tudo o que é EXCETO nomes de domínio.</li>
+                                <li>2 hide domains and clients – esta opção registra tudo o que é EXCETO de nomes de
+                                    domínio e qual cliente fez a solicitação.</li>
+                                <li>3 Anonymous mode – esta opção desativa tudo, exceto as estatísticas mais anônimas.
+                                </li>
+                            </ul>
+                            <p>Seta para sua escolha e pressione o espaço, em seguida, tabulação e seta para ok e
+                                pressione enter. Esta opção pode ser alterada mais tarde na interface de administração
+                                da web se você mudar de ideia mais tarde.</p>
+                            <img src="../assets/img/pihole-install-10.webp" alt="pihole-install" class="img-generic">
+                        </li>
+                        <li>
+                            <p>Sua instalação do Pi-hole está concluída, no entanto, temos alguns passos opcionais que podemos fazer antes de usá-lo. Observe que o Pi-hole oferece um URL para acessar sua interface de administrador, bem como uma senha de login. Retire esse URL e senha. Pressione Enter para terminar.</p>
+                            <img src="../assets/img/pihole-install-11.webp" alt="pihole-install" class="img-generic">
+                        </li>
+                        <li>Passo opcional – Alterar a senha
+                            <p>Embora a senha gerada pelo instalador do Pi-hole seja uma senha justa, se você quiser escolher sua própria senha, você pode usar esse comando para alterá-la.</p>
+                            <kbd>pihole -a -p</kbd>
+                            <p>Você será solicitado a inserir uma nova senha (ou em branco para nenhuma senha – não recomendada) e depois confirmá-la.</p>
+                            <img src="../assets/img/pihole-install-12.webp" alt="pihole-install" class="img-generic">
+                        </li>
+                    </ol>
+                </section>
+                <section id="docker-pi-hole" class="post-section">
+                    <h2>Docker Pi-hole</h2>
+                    <p>Para prosseguir com a instalação do Pi-Hole via Docker, é necessário que o Docker e o Docker-Compose estejam instalados.</p>
+                    <ol>
+                        <li>Preparando seu Sistema para Executar o Pi-Hole como um Contêiner:
+                            <p>Se você já tem o Docker instalado em seu sistema, pode pular para a seção “Instalando o
+                                Contêiner Docker do Pi-Hole”.</p>
+                            <p>Primeiro, atualize a lista de pacotes em sistemas.</p>
+                            <kbd>sudo apt update</kbd>
+                            <p>Em seguida, instale o Docker usando o seguinte comando:</p>
+                            <kbd>curl -sSL https://get.docker.com | sh</kbd>
+                            <p>Adicione seu usuário atual ao grupo “docker” para facilitar a interação com os
+                                contêineres:</p>
+                            <kbd>sudo usermod -aG docker $USER</kbd>
+                        </li>
+                        <li>Instalando o Contêiner Docker do Pi-Hole:
+                            <p>Crie um arquivo chamado docker-compose.yml (por exemplo, usando sudo nano
+                                docker-compose.yml) e cole o seguinte código:</p>
+                            <img src="../assets/img/pihole-docker.png" alt="pi-hole-docker" class="img-generic">
+                            <span style="display: block; opacity: .45;">abaixo deixarei o link do github para o arquivo
+                                <a
+                                    href="https://github.com/GUERREIR0/docker/blob/main/pi-hole/docker-compose.yml">docker-compose.yml</a>.</span>
+                            <p>Defina sua senha em <strong>WEBPASSWORD</strong></p>
+                        </li>
+                        <li>Configurando o Pi-Hole:
+                            <p>- Acesse a interface web do Pi-Hole em http://0.0.0.0/admin/</p>
+                            <p>- Use a senha definida na variável <strong>WEBPASSWORD</strong>.</p>
+                            <p> -Configure as opções conforme suas preferências.</p>
+                        </li>
+                        <li>Adicione o Pi-hole como servidor DHCP
+                            <p>Vá para aba de configurações de redes.</p>
+                            <img src="../assets/img/pihole-redes.png" alt="pi-hole-redes" class="img-generic">
+                            <p>Em IPV4 vá até DNS e coloque o IP do Pi-hole.</p>
+                            <img src="../assets/img/pihole-dhcp-ip.png" alt="pi-hole-dhcp-ip" class="img-generic">
+                        </li>
+                        <li>
+                            <p>Verifique se tudo foi configurado corretamente, vá até o terminal e digite o comendo abaixo:</p>
+                            <kbd>cat /etc/resolv.conf</kbd>
+                            <img src="../assets/img/pihole-resolv-conf.png" alt="pi-hole-resolve-conf" class="img-generic">
+                        </li>
+                    </ol>
+
+                </section>
+                <section id="fonts" class="post-section">
+                    <h2>Fontes</h2>
+                    <ul style="text-align: center;">
+                        <li><a href="https://pi-hole.net/">Site - Pi-hole</a></li>
+                        <li><a href="https://docs.pi-hole.net/">Documentação - Pi-hole</a></li>
+                        <li><a href="https://github.com/pi-hole/pi-hole">Github - Pi-hole</a></li>
+                        <li><a href="https://github.com/pi-hole/docker-pi-hole">Github - Docker Pi-hole</a></li>
+                        <li><a href="https://www.raspberrypi.com/news/pi-hole-raspberry-pi/">Bloqueie anúncios em casa
+                                usando Pi-hole e um Raspberry Pi</a></li>
+                        <li><a href="https://www.techaddressed.com/tutorials/installing-pi-hole-debian-ubuntu/">installing-pi-hole-debian-ubuntu</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=arGA95XCoVc">Bloquear Anúncios e Ter Internet mais
+                                Rápida? Pi-Hole neles!</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=UpoYUudxZU0">Bloqueei TODOS os anúncios da Internet
+                                com isso aqui - Pi-Hole</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=Ca0rsQ8yYuU">Bloqueie TODOS os anúncios! Crie SUA
+                                VPN com Pi-Hole</a></li>
+                    </ul>
+                </section>
+                <section id="payment" class="post-section container-content">
+                    <h2>Pagamento</h2>
+                    <span>⚡ Lightning Network</span>
+                    <kbd>guerrelr0@getalby.com</kbd>
+                    <img class="img-generic" src="/assets/img/qrcode.png" alt="">
+                </section>
+            </section>
+        </section>
+    </main>
+    <a href="#title" id="button-to-home">👆</a>
+</body>
+
+</html>
