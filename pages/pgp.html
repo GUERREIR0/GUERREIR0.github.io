@@ -166,7 +166,7 @@
                     <p>Em seguida, instale o GnuPG digitando o seguinte código no Terminal: </p>
                     <kbd>brew install gnupg gnupg2</kbd>
                 </section>
-                <section id="create-key" class="post-section container-content">
+                <section id="create-key" class="post-section">
                     <h2>Criando sua Chave</h2>
                     <p>Para usar o sistema GnuPG, você precisará de uma chave pública e uma chave privada (conhecida
                         juntos como um papel de chave). Cada um é uma longa sequência de números gerados aleatoriamente
@@ -238,37 +238,37 @@
                 <section id="commands" class="post-section">
                     <h2>Comandos GPG</h2>
                     <ol>
-                        <li>Listar Chaves Disponíveis:
+                        <li><strong>Listar Chaves Disponíveis:</strong>
                             <p>Para listar todas as chaves disponíveis em seu sistema, use o comando:</p>
                             <kbd>gpg --list-keys</kbd>
                         </li>
-                        <li>Listar Chaves por Padrão:
+                        <li><strong>Listar Chaves por Padrão:</strong>
                             <p>Se você deseja listar chaves com base em um padrão específico (por exemplo, filtrar por
                                 nome ou e-mail), use:</p>
                             <kbd>gpg --list-keys (padrão)</kbd>
                         </li>
-                        <li>Exportar Chave Pública:
+                        <li><strong>Exportar Chave Pública:</strong>
                             <p>Para exportar sua chave pública para um arquivo (por exemplo, “chavepub.txt”), use:</p>
                             <kbd>gpg --armor --output chavepub.txt --export (chavepub)</kbd>
                             <p>Substitua (chavepub) pelo e-mail ou nome da chave pública que você deseja exportar.</p>
                         </li>
-                        <li>Importar Chave Pública:
+                        <li><strong>Importar Chave Pública:</strong>
                             <p>Se você tiver uma chave pública em um arquivo (por exemplo, “chavepub.txt”), importe-a
                                 usando:</p>
                             <kbd>gpg --import chavepub.txt</kbd>
                         </li>
-                        <li>Encriptografar Arquivos com Chave Pública:
+                        <li><strong>Encriptografar Arquivos com Chave Pública:</strong>
                             <p>Para encriptografar um arquivo usando uma chave pública, execute:</p>
                             <kbd>gpg --encrypt --recipient (chavepub) arquivo.txt</kbd>
                             <p>Substitua (chavepub) pela chave pública relevante e “arquivo.txt” pelo nome do arquivo
                                 que você deseja criptografar.</p>
                         </li>
-                        <li>Assinar Arquivos Digitalmente:
+                        <li><strong>Assinar Arquivos Digitalmente:</strong>
                             <p>Para assinar um arquivo digitalmente, use:</p>
                             <kbd>gpg --sign arquivo.txt</kbd>
                             <p>Isso criará uma assinatura digital para o arquivo.</p>
                         </li>
-                        <li>Assinar Arquivos Digitalmente (Com uma chave especifica):
+                        <li><strong>Assinar Arquivos Digitalmente (Com uma chave especifica):</strong>
                             <p>Quando você assina digitalmente um arquivo usando o GNU Privacy Guard (GPG), a chave
                                 usada para assinar é automaticamente determinada com base na sua configuração. O GPG
                                 seleciona sua chave privada padrão para realizar a assinatura.</p>
@@ -284,12 +284,12 @@
                             <p>Na maioria dos casos, o GPG escolherá automaticamente a chave correta com base nas
                                 configurações padrão, mas você pode especificar manualmente se necessário. 🗝️🔏</p>
                         </li>
-                        <li>Verificar Assinaturas Digitais:
+                        <li><strong>Verificar Assinaturas Digitais:</strong>
                             <p>Para verificar a assinatura digital de um arquivo, execute:</p>
                             <kbd>gpg --verify arquivo.txt</kbd>
                             <p>Isso verificará se a assinatura é válida.</p>
                         </li>
-                        <li>Decriptografar Arquivos com Chave Privada:
+                        <li><strong>Decriptografar Arquivos com Chave Privada:</strong>
                             <p>Para decriptografar um arquivo usando sua chave privada, use:</p>
                             <kbd>gpg --decrypt arquivo.gpg</kbd>
                             <p>Isso descriptografará o arquivo e, se ele estiver assinado, também verificará a
