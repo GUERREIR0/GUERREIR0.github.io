@@ -339,7 +339,7 @@ ol > li strong{
     }
 }
 
-@media (max-width: 400rem){
+@media (max-width: 40rem){
     .post-section{
         margin: 0;
     }
